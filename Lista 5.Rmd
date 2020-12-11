@@ -1,0 +1,59 @@
+---
+title: "Lista 05"
+author: "Amanda Lopes; Ana Vaz; Bárbara Maia; Isabel Eirado"
+date: "09/12/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Ativando os pacotes
+
+### **Pacotes**
+
+```{r ativando pacotes, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+library(readxl)
+library(ggplot2)
+library(tidyverse)
+library(rmarkdown)
+library(ggpubr)
+
+```
+
+## Importando o banco de dados
+
+```{r importando os dados, echo=TRUE}
+state_const <- read_xlsx("/Users/AMANDA/OneDrive - unb.br/A_POS-GRADUACAO/DISCIPLINAS/3_SEM/MQCP/Dados/US-State_Constitutions_Dataset_1776-2017.xlsx")
+States_and_Abbreviations <- read_xlsx("/Users/AMANDA/OneDrive - unb.br/A_POS-GRADUACAO/DISCIPLINAS/3_SEM/MQCP/Dados/States and Abbreviations.xlsx")
+
+```
+
+## Manipulando os dados
+
+```{r manipulando os dados com dplyr, echo=TRUE}
+constituicoes_testehipotese <-  state_const %>% 
+  select(state, constitution_year, current_constitution, total_words, declaration_rights, discrimination) %>% 
+  left_join(States_and_Abbreviations, constituicoes_poderes, by = "state")
+
+```
+
+## Visualizando em tabela
+
+```{r}
+paged_table (constituicoes_testehipotese)
+
+```
+
+## Testando a hipótese
+
+```{r}
+constituicoes_testehipotese %>%
+  ggscatter(x = "declaration_rights", y = "discrimination", add = "reg.line", conf.int = TRUE) + stat_cor(method = "pearson", label.x = 7)
+  
+```
+
+
+
+
