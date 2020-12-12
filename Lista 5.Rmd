@@ -15,6 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r ativando pacotes, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
 library(readxl)
+library(readr)
 library(ggplot2)
 library(tidyverse)
 library(rmarkdown)
@@ -25,8 +26,8 @@ library(ggpubr)
 ## Importando o banco de dados
 
 ```{r importando os dados, echo=TRUE}
-state_const <- read_xlsx("/Users/AMANDA/OneDrive - unb.br/A_POS-GRADUACAO/DISCIPLINAS/3_SEM/MQCP/Dados/US-State_Constitutions_Dataset_1776-2017.xlsx")
-States_and_Abbreviations <- read_xlsx("/Users/AMANDA/OneDrive - unb.br/A_POS-GRADUACAO/DISCIPLINAS/3_SEM/MQCP/Dados/States and Abbreviations.xlsx")
+state_const <- read_excel("States and Abbreviations.xlsx")
+States_and_Abbreviations <- read_excel("States and Abbreviations.xlsx")
 
 ```
 
