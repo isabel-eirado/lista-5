@@ -1,7 +1,7 @@
 ---
 title: "Lista 05"
 author: "Amanda Lopes; Ana Vaz; Bárbara Maia; Isabel Eirado"
-date: "09/12/2020"
+date: "16 de Dezembro"
 output: html_document
 ---
 
@@ -10,8 +10,6 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Ativando os pacotes
-
-### **Pacotes**
 
 ```{r ativando pacotes, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
 library(readxl)
@@ -36,9 +34,13 @@ States_and_Abbreviations <- read_excel("States and Abbreviations.xlsx")
 ## Manipulando os dados
 
 ```{r manipulando os dados com dplyr, echo=TRUE}
+
 constituicoes_testehipotese <-  state_const %>% 
-  select(state, constitution_year, current_constitution, total_words, declaration_rights, discrimination) %>% 
+  select(state, constitution_year, 
+  current_constitution, total_words, 
+  declaration_rights, discrimination) %>% 
   left_join(States_and_Abbreviations, constituicoes_poderes, by = "state")
+
 ```
 
 ## Visualizando em tabela
@@ -61,7 +63,7 @@ H1: Há maior variação no número de palavras das Constituições estaduais co
 - Variável: valor_novas
 - Operacionalização: Corresponde ao número de palavras das Constituições Estaduais atuais.
 
-```{r}
+```{r hipoteses, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
 # Criando uma coluna com a Média de Palavras das Constituições Estaduais
 
