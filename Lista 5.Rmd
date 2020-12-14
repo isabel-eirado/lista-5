@@ -51,7 +51,7 @@ paged_table (constituicoes_testehipotese)
 
 ## Testando a hipótese
 
-- {Qual a base dessa hipótese?}
+- A Hipótese parte da premissa de que, ao longo do tempo, as Constituições tem se alargado. De acordo com Tarr (2006), a história das constituições estaduais é uma história de mudança constitucional. A expansão e evolução das constituição já foi alvo de muito interesse por pesquisadores (Dealey, 2009; Bryce, 1995), assim como a expansão em termos de número de palavras, isto é, seu tamanho (Luce, 2009; De Grazia, 1954; Sturm, 1982). A novidade da base trazida por Gervais (2019) é a transformação dos textos constitucionais em variáveis quantitativas comparáveis. Assim, a hipótese parte da pressima de que as constituições estaduais mudam ao longo tempo, se expandindo (fato medido pela quantidade de palavras). Dado que a expansão vem ocorrendo ao longo do tempo, a ideia é verificar se as atuais constituições se expandiram mais do que a média das constituições históricas.
 
 H0: A variação do número de palavras permance a mesma ao longo das mudanças constitucionais.
 
@@ -95,7 +95,7 @@ valor_novas <- constituicoes_novas$total_words
 
 ## Teste T
 
-- {Por que aplicamos o teste T?}
+- O teste-t foi utilizado para comparar o tamanho (em termos de número de palavras) das constituições atuais e a média do tamanho das constituições históricas.
 
 ```{r}
 t.test(media_antigas, valor_novas, paired = TRUE)
@@ -105,7 +105,7 @@ plot(t.test(media_antigas,valor_novas, mu = 0))
 
 ```
 
-- {O que os resultados nos dizem?}
+- A partir do teste T, observa-se a confirmação da hipótese alternativa. Um  p-value = 0.0009796 indica que a diferença é estatisticamente significativa.
 
 # Correlação
 
