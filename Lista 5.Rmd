@@ -106,17 +106,3 @@ plot(t.test(media_antigas,valor_novas, mu = 0))
 ```
 
 - A partir do teste T, observa-se a confirmação da hipótese alternativa. Um  p-value = 0.0009796 indica que a diferença é estatisticamente significativa.
-
-# Correlação
-
-{Faz sentido verificar a correlação nessa lista?}
-
-```{r}
-constituicoes_testehipotese %>%
-  ggscatter(x = "declaration_rights", y = "discrimination", add = "reg.line", conf.int = TRUE) + stat_cor(method = "pearson", label.x = 7)
-  
-```
-
-
-
-
