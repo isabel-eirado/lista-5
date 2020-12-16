@@ -95,7 +95,7 @@ valor_novas <- constituicoes_novas$total_words
 
 - O teste-t foi utilizado para comparar o tamanho (em termos de número de palavras) das constituições atuais e a média do tamanho das constituições históricas.
 
-```{r echo=TRUE}
+```{r echo=TRUE, paged.print=TRUE}
 t.test(x=media_antigas, y=valor_novas, paired = TRUE)
 
 ```
