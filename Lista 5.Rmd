@@ -15,12 +15,10 @@ knitr::opts_chunk$set(echo = TRUE)
 library(readxl)
 library(readr)
 library(ggplot2)
-library(tidyverse)
+library(tidyr)
+library(dplyr)
 library(rmarkdown)
-library(ggpubr) # P/ plotar o teste de correlação
-library (devtools) # P/ instalar pacotes do github
-devtools::install_github("cardiomoon/webr") # P/ plotar o gráfico de distribuição do Teste T
-library(webr)
+library (infer)
 ```
 
 ## Importando o banco de dados
@@ -98,10 +96,8 @@ valor_novas <- constituicoes_novas$total_words
 - O teste-t foi utilizado para comparar o tamanho (em termos de número de palavras) das constituições atuais e a média do tamanho das constituições históricas.
 
 ```{r}
-t.test(media_antigas, valor_novas, paired = TRUE)
+ttest <- t.test(x=media_antigas, y=valor_novas, paired = TRUE)
 
-# Plotando a distribuição das médias
-plot(t.test(media_antigas,valor_novas, mu = 0))
 
 ```
 
