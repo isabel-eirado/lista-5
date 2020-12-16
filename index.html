@@ -1728,7 +1728,18 @@ valor_novas &lt;- constituicoes_novas$total_words</code></pre>
 <ul>
 <li>O teste-t foi utilizado para comparar o tamanho (em termos de número de palavras) das constituições atuais e a média do tamanho das constituições históricas.</li>
 </ul>
-<pre class="r"><code>ttest &lt;- t.test(x=media_antigas, y=valor_novas, paired = TRUE)</code></pre>
+<pre class="r"><code>t.test(x=media_antigas, y=valor_novas, paired = TRUE)</code></pre>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  media_antigas and valor_novas
+## t = -3.5073, df = 49, p-value = 0.0009796
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -36850.25 -10004.19
+## sample estimates:
+## mean of the differences 
+##               -23427.22</code></pre>
 <ul>
 <li>A partir do teste T, observa-se a confirmação da hipótese alternativa. Um p-value = 0.0009796 indica que a diferença é estatisticamente significativa.</li>
 </ul>
